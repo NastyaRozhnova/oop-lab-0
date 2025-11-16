@@ -1,0 +1,14 @@
+/Users/nastya/lab0 oop/VendingConsoleApp/bin/Debug/net10.0/VendingConsoleApp
+/Users/nastya/lab0 oop/VendingConsoleApp/bin/Debug/net10.0/VendingConsoleApp.deps.json
+/Users/nastya/lab0 oop/VendingConsoleApp/bin/Debug/net10.0/VendingConsoleApp.runtimeconfig.json
+/Users/nastya/lab0 oop/VendingConsoleApp/bin/Debug/net10.0/VendingConsoleApp.dll
+/Users/nastya/lab0 oop/VendingConsoleApp/bin/Debug/net10.0/VendingConsoleApp.pdb
+/Users/nastya/lab0 oop/VendingConsoleApp/obj/Debug/net10.0/VendingConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nastya/lab0 oop/VendingConsoleApp/obj/Debug/net10.0/VendingConsoleApp.AssemblyInfoInputs.cache
+/Users/nastya/lab0 oop/VendingConsoleApp/obj/Debug/net10.0/VendingConsoleApp.AssemblyInfo.cs
+/Users/nastya/lab0 oop/VendingConsoleApp/obj/Debug/net10.0/VendingConsoleApp.csproj.CoreCompileInputs.cache
+/Users/nastya/lab0 oop/VendingConsoleApp/obj/Debug/net10.0/VendingConsoleApp.dll
+/Users/nastya/lab0 oop/VendingConsoleApp/obj/Debug/net10.0/refint/VendingConsoleApp.dll
+/Users/nastya/lab0 oop/VendingConsoleApp/obj/Debug/net10.0/VendingConsoleApp.pdb
+/Users/nastya/lab0 oop/VendingConsoleApp/obj/Debug/net10.0/VendingConsoleApp.genruntimeconfig.cache
+/Users/nastya/lab0 oop/VendingConsoleApp/obj/Debug/net10.0/ref/VendingConsoleApp.dll
