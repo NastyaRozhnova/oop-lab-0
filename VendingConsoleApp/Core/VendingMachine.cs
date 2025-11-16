@@ -74,17 +74,29 @@ namespace VendingConsoleApp
         {
             Console.WriteLine("Автомат принимает: " + string.Join(", ", _acceptedValue));
             Console.Write("Введите количество денег, которые хотите внести: ");
+            var input = Console.ReadLine();
 
-            if (decimal.TryParse(Console.ReadLine(), out decimal coin) && coin > 0)
+            if (decimal.TryParse(input, out decimal coin) && coin > 0)
             {
-                if (Array.Exists(_acceptedValue, c => c == coin))
+                bool found = false;
+
+                foreach (var c in _acceptedValue)
+                {
+                    if (c == coin)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (found)
                 {
                     _balance += coin;
                     Console.WriteLine($"Принято {coin:0.00}. Баланс: {_balance:0.00}");
                 }
                 else
                 {
-                    Console.WriteLine("Такой номинал не принимается, внести другую купюру");
+                    Console.WriteLine("Такой номинал не принимается, внесите другую купюру");
                 }
             }
         }
@@ -94,14 +106,13 @@ namespace VendingConsoleApp
             ShowItems();
             Console.Write("Введите ID товара (или напишите 'отмена' для выхода): ");
             var input = Console.ReadLine();
-            if (input?.Trim().ToLower() == "отмена")
+            if (string.Equals(input, "отмена", StringComparison.OrdinalIgnoreCase))
             {
                 Console.WriteLine("Операция покупки отменена");
                 ReturnTheChange();
                 return;
             }
-            if (!int.TryParse(input, out int id))
-                return;
+            var id = int.Parse(input!);
             var item = _items.Find(i => i.Id == id);
             if (item == null)
             {
@@ -163,24 +174,20 @@ namespace VendingConsoleApp
                 {
                     case "1":
                         Console.Write("Введите название товара: ");
-                        var name = Console.ReadLine();
+                        var name = Console.ReadLine()!;
                         Console.Write("Введите цену товара: ");
                         var price = decimal.Parse(Console.ReadLine()!);
                         Console.Write("Введите количество: ");
                         var qty = int.Parse(Console.ReadLine()!);
-                        var newId = _items.Count > 0 ? _items[^1].Id + 1 : 1;
-                        _items.Add(new Item(newId, name!, price, qty));
+                        var newId = _items.Count + 1;
+                        _items.Add(new Item(newId, name, price, qty));
                         Console.WriteLine($"Добавлен товар '{name}' по цене {price:0.00} в количестве {qty}.");
                         break;
 
                     case "2":
                         ShowItems();
                         Console.Write("Введите ID товара для пополнения: ");
-                        if (!int.TryParse(Console.ReadLine(), out int id) || !_items.Exists(i => i.Id == id))
-                        {
-                            Console.WriteLine("Неверный ID товара");
-                            break;
-                        }
+                        var id = int.Parse(Console.ReadLine()!);
                         var item = _items.Find(i => i.Id == id)!;
                         Console.Write("Введите количество для добавления: ");
                         var addQty = int.Parse(Console.ReadLine()!);
